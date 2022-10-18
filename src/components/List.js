@@ -13,7 +13,6 @@ const List = () => {
     axios
       .get("http://localhost/producto/")
       .then((response) => {
-        console.log(response);
         setData(response.data);
       })
       .catch((error) => {
@@ -78,7 +77,7 @@ const List = () => {
                     <td>{d.precio}</td>
                     <td>
                       <div className="btnsList">
-                        <Link className="btnEdit" to={"/edit"}>
+                        <Link className="btnEdit" to={`/edit/${d.id}`}>
                           Edit <FiEdit />
                         </Link>
                         <button className="btnDelete" id={d.id} onClick={(e)=> deleteProduct(e)}>
