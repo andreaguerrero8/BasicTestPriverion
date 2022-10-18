@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const FormCreate = () => {
   const [dataForm, setDataForm] = useState({});
@@ -27,23 +27,26 @@ const FormCreate = () => {
       .post("http://localhost/producto/?insertar=1", data)
       .then((response) => {
         Swal.fire({
-          icon: 'success',
-          title: 'Product Created successfully',
-          ConfirmButton: 'Ok',
-        })
+          icon: "success",
+          title: "Product Created successfully",
+          ConfirmButton: "Ok",
+        }).then((result) => {
+          window.location.href = "/";
+        });
       })
       .catch((error) => {
         Swal.fire({
-          icon: 'Error',
-          title: 'Ops there was an error, try again',
-          ConfirmButton: 'Ok',
-        })
+          icon: "Error",
+          title: "Ops there was an error, try again",
+          ConfirmButton: "Ok",
+        });
       });
   };
 
+
+  //onSubmit
   const onSubmit = (formData) => {
     createProduct(formData);
-
     reset();
   };
 

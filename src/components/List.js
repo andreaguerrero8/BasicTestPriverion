@@ -4,6 +4,7 @@ import { Card, ListGroup, Table } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const List = () => {
   const [data, setData] = useState([]);
@@ -20,7 +21,39 @@ const List = () => {
       });
   }, []);
 
-  console.log(data);
+  //peticion DELETE for delete product
+  const deleteProduct = (e) => {
+
+    Swal.fire({
+      text: "Are you sure you want to delete the product?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Delete Product!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .post(`http://localhost/producto/?borrar=${e.target.id}`)
+          .then((response) => {
+            Swal.fire({
+              icon: "success",
+              title: "Product Delete successfully",
+              ConfirmButton: "Ok",
+            }).then((result) => {
+              window.location.href = "/";
+            });
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "Error",
+              title: "Ops there was an error, try again",
+              ConfirmButton: "Ok",
+            });
+          });
+      }
+    });
+  };
 
   return (
     <>
@@ -44,15 +77,13 @@ const List = () => {
                     <td>{d.nombre}</td>
                     <td>{d.precio}</td>
                     <td>
-                      <div
-                        className="btnsList"
-                      >
+                      <div className="btnsList">
                         <Link className="btnEdit" to={"/edit"}>
                           Edit <FiEdit />
                         </Link>
-                        <Link className="btnDelete" to={"/"}>
+                        <button className="btnDelete" id={d.id} onClick={(e)=> deleteProduct(e)}>
                           Delete <FaTrashAlt />
-                        </Link>
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -60,7 +91,7 @@ const List = () => {
               </tbody>
             </Table>
           </Card.Body>
-          <Card.Footer style={{padding:'3%'}}>
+          <Card.Footer style={{ padding: "3%" }}>
             <Link to={"/create"} className="btnAdd">
               Add Product
             </Link>
