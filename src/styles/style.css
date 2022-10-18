@@ -3,7 +3,6 @@
   box-sizing: border-box;
 }
 
-
 .formCreate {
   width: 100%;
   margin: 0 auto;
@@ -16,7 +15,7 @@
   width: 50%;
 }
 
-.btnEdit{
+.btnEdit {
   border: none;
   background-color: rgb(85, 82, 231);
   border: 1px solid rgb(85, 82, 231);
@@ -30,7 +29,7 @@
   margin-right: 2%;
 }
 
-.btnDelete{
+.btnDelete {
   border: none;
   background-color: rgb(228, 48, 48);
   border: 1px solid rgb(228, 48, 48);
@@ -43,26 +42,70 @@
   text-decoration: none;
 }
 
-.btnEdit svg{
+.btnAdd {
+  border: none;
+  background-color: rgb(131, 131, 131);
+  border: 1px solid rgb(131, 131, 131);
+  border-radius: 7px;
+  color: white;
+  padding: 1% 2%;
+  text-decoration: none;
+}
+
+.btnBack {
+  border: none;
+  background-color: rgb(131, 131, 131);
+  border: 1px solid rgb(131, 131, 131);
+  border-radius: 7px;
+  color: white;
+  padding: 1.4% 4%;
+  text-decoration: none;
+  margin-left: 3%;
+}
+
+.btnBack:hover {
+  border: none;
+  background-color: whitesmoke;
+  border: 1px solid rgb(131, 131, 131);
+  color: rgb(131, 131, 131);
+  text-decoration: none;
+}
+
+.btnAdd:hover {
+  border: none;
+  background-color: whitesmoke;
+  border: 1px solid rgb(131, 131, 131);
+  border-radius: 7px;
+  color: rgb(131, 131, 131);
+  padding: 1% 2%;
+  text-decoration: none;
+}
+
+.btnEdit svg {
   font-size: 1.3rem;
   margin-left: 5%;
 }
 
-.btnDelete svg{
+.btnDelete svg {
   font-size: 1.3rem;
   margin-left: 5%;
 }
 
-.btnDelete:hover{
+.btnDelete:hover {
   background-color: whitesmoke;
   border: 1px solid rgb(228, 48, 48);
-  color: rgb(228, 48, 48);;
+  color: rgb(228, 48, 48);
 }
 
-.btnEdit:hover{
+.btnEdit:hover {
   background-color: whitesmoke;
   border: 1px solid rgb(85, 82, 231);
   color: rgb(85, 82, 231);
+}
+
+.btnsList {
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media (max-width: 768px) {
@@ -71,5 +114,8 @@
   }
   .formCreate .card {
     width: 80%;
-}
+  }
+  .btnsList {
+    display: inline-block;
+  }
 }

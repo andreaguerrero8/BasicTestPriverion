@@ -22,8 +22,8 @@ const App = () => {
         }}
       >
         <Routes>
-          <Route path="/" element={<FormCreate />} />
-          <Route path="/list" element={<List />} />
+          <Route path="/create" element={<FormCreate />} />
+          <Route path="/" element={<List />} />
           <Route path="/edit" element={<Editar />} />
         </Routes>
       </div>

@@ -6,7 +6,7 @@ const Navbars = () => {
   return (
     <Navbar bg="primary" variant="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="/">Crud Tiendita Express</Navbar.Brand>
+        <Navbar.Brand href="/">Tiendita Express</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -14,8 +14,8 @@ const Navbars = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Link className="nav-link" to={"/"}>Create Poducts</Link>
-            <Link className="nav-link" to={"/list"}>List Products</Link>
+            <Link className="nav-link" to={"/create"}>Create Poducts</Link>
+            <Link className="nav-link" to={"/"}>List Products</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

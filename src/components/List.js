@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Card, ListGroup, Table } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ const List = () => {
 
   useEffect(() => {
     axios
-      .get("https://example.com/users/")
+      .get("http://localhost/producto/")
       .then((response) => {
         console.log(response);
         setData(response.data);
@@ -25,36 +25,47 @@ const List = () => {
   return (
     <>
       {data.length > 0 ? (
-        <>
-          <h1 style={{ paddingBottom: "3%" }}>Product List</h1>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Milk</td>
-                <td>5000</td>
-                <td>
-                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Link className="btnEdit" to={"/edit"}>
-                      Edit <FiEdit />
-                    </Link>
-                    <Link className="btnDelete" to={"/"}>
-                      Delete <FaTrashAlt />
-                    </Link>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </Table>
-        </>
+        <Card style={{ marginTop: "3%" }}>
+          <Card.Body>
+            <h1 style={{ paddingBottom: "2%" }}>Product List</h1>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data?.map((d, index) => (
+                  <tr key={index}>
+                    <td>{d.id}</td>
+                    <td>{d.nombre}</td>
+                    <td>{d.precio}</td>
+                    <td>
+                      <div
+                        className="btnsList"
+                      >
+                        <Link className="btnEdit" to={"/edit"}>
+                          Edit <FiEdit />
+                        </Link>
+                        <Link className="btnDelete" to={"/"}>
+                          Delete <FaTrashAlt />
+                        </Link>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Card.Body>
+          <Card.Footer style={{padding:'3%'}}>
+            <Link to={"/create"} className="btnAdd">
+              Add Product
+            </Link>
+          </Card.Footer>
+        </Card>
       ) : (
         <div>
           <h1>cargando...</h1>
