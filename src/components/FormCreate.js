@@ -6,7 +6,7 @@ const FormCreate = () => {
   return (
     <>
       <h1 style={{textAlign:'center'}}>Create New Product</h1>
-      <div style={{ width: "50%", margin: "0 auto", paddingTop: '3%' }}>
+      <div className="formCreate">
         <Card style={{ padding: "5%" }}>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

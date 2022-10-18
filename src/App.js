@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FormCreate from "./components/FormCreate";
 import List from "./components/List";
-
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Navbars from "./components/Navbars";
+import "./styles/style.css"
+import Editar from "./components/Editar";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<FormCreate />} />
           <Route path="/list" element={<List />} />
+          <Route path="/edit" element={<Editar />} />
         </Routes>
       </div>
     </Router>

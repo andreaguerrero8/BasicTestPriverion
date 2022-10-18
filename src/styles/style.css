@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.formCreate {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 3%;
+  display: flex;
+  justify-content: center;
+}
+
+.formCreate .card {
+  width: 50%;
+}
+
+.btnEdit{
+  border: none;
+  background-color: rgb(85, 82, 231);
+  border: 1px solid rgb(85, 82, 231);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 7px;
+  color: white;
+  padding: 2% 5%;
+  text-decoration: none;
+  margin-right: 2%;
+}
+
+.btnDelete{
+  border: none;
+  background-color: rgb(228, 48, 48);
+  border: 1px solid rgb(228, 48, 48);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 7px;
+  color: white;
+  padding: 2% 5%;
+  text-decoration: none;
+}
+
+.btnEdit svg{
+  font-size: 1.3rem;
+  margin-left: 5%;
+}
+
+.btnDelete svg{
+  font-size: 1.3rem;
+  margin-left: 5%;
+}
+
+.btnDelete:hover{
+  background-color: whitesmoke;
+  border: 1px solid rgb(228, 48, 48);
+  color: rgb(228, 48, 48);;
+}
+
+.btnEdit:hover{
+  background-color: whitesmoke;
+  border: 1px solid rgb(85, 82, 231);
+  color: rgb(85, 82, 231);
+}
+
+@media (max-width: 768px) {
+  .formCreate {
+    width: 80%;
+  }
+  .formCreate .card {
+    width: 80%;
+}
+}

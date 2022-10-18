@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Navbars = () => {
   return (
@@ -13,8 +14,8 @@ const Navbars = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/">Create Poducts</Nav.Link>
-            <Nav.Link href="/list">List Products</Nav.Link>
+            <Link className="nav-link" to={"/"}>Create Poducts</Link>
+            <Link className="nav-link" to={"/list"}>List Products</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
