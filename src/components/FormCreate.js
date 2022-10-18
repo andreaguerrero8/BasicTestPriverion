@@ -7,7 +7,6 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const FormCreate = () => {
-  const [dataForm, setDataForm] = useState({});
 
   const {
     register,
